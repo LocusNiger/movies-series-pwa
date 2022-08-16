@@ -1,6 +1,3 @@
-import MoviesOfTheMonth from "../components/MoviesOfTheMonth";
-import PeoplesFavorites from "../components/PeoplesFavorites";
-import SeriesOfTheMonth from "../components/SeriesOfTheMonth";
 import HomeWithoutLogin from "../pages/HomeWithoutLogin";
 import HomeWithLogin from "../pages/HomeWithLogin";
 
