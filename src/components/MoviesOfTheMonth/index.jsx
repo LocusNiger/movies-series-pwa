@@ -1,13 +1,12 @@
 import axios from "axios";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Month } from "./Month";
 
 const MoviesOfTheMonth = () => {
-  const endpoint = "https://api.themoviedb.org/3/trending/movie/week?api_key=9cc2ccd6d9648c49e03bee3c9b88a569";
   const [moviesTrending, setMoviesTrending] = useState([]);
   useEffect(() => {
+    const endpoint = "https://api.themoviedb.org/3/trending/movie/week?api_key=9cc2ccd6d9648c49e03bee3c9b88a569";
     axios
       .get(endpoint)
       .then((res) => {
@@ -43,7 +42,7 @@ const MoviesOfTheMonth = () => {
         </ul>
         <div className="flex justify-center mt-6">
           <p className="text-2xl text-white ">
-            <Link to={`/`}> See more </Link>
+            <Link to={`/trending-movies`}> See more </Link>
           </p>
         </div>
       </section>
