@@ -7,7 +7,6 @@ html {
   background-color: #111827;
   box-sizing: border-box;
 }
-
 @layer utilities {
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {

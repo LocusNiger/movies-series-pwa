@@ -6,7 +6,7 @@ const index = () => {
     <>
       {!token ? (
         <>
-          <header className="bg-gray-900">
+          <header className="bg-gray-900 mb-4">
             <nav className="max-w-3xl p-4 mx-auto">
               <ul className="flex justify-end text-base text-white">
                 <li>
@@ -19,7 +19,7 @@ const index = () => {
           </header>
         </>
       ) : (
-        <header className="bg-gray-900">
+        <header className="bg-gray-900 mb-4">
           <nav className="max-w-3xl p-4 mx-auto">
             <ul className="flex justify-end text-base text-white">
               <li>

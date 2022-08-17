@@ -1,7 +1,7 @@
 const index = () => {
   return (
     <>
-      <footer className="border-t">
+      <footer className="border-t mt-6">
         <div className="flex w-auto mx-4 mt-2 justify-center ">
           <a
             href="https://www.linkedin.com/in/ivansanchez-frontend/"
