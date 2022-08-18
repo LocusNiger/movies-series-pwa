@@ -1,40 +1,16 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useMovies } from "../../hooks/useMovies";
+import { usePopularMovies } from "../../hooks/usePopularMovies";
 
 const TrendingMovies = () => {
-  const [moviesTrending, setMoviesTrending] = useState([]);
-  const [popularMovies, setPopularMovies] = useState([]);
-  /* movies of the month */
-  useEffect(() => {
-    const endpoint = "https://api.themoviedb.org/3/trending/movie/week?api_key=9cc2ccd6d9648c49e03bee3c9b88a569";
-    axios
-      .get(endpoint)
-      .then((res) => {
-        setMoviesTrending(res.data.results);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [setMoviesTrending]);
-  moviesTrending.splice(10, 19);
+  const { moviesTrending } = useMovies();
+  const { popularMovies } = usePopularMovies();
 
-  /* popular movies */
-  useEffect(() => {
-    const endpoint =
-      "https://api.themoviedb.org/3/discover/movie?api_key=9cc2ccd6d9648c49e03bee3c9b88a569&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1&primary_release_year=2021&with_watch_monetization_types=flatrate";
-    axios
-      .get(endpoint)
-      .then((res) => {
-        setPopularMovies(res.data.results);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [setPopularMovies]);
+  moviesTrending.splice(10, 19);
   popularMovies.splice(10, 19);
   return (
     <>
+      {/* Trending Movies */}
       <section className="mx-auto my-4 max-w-7xl">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-3xl font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 h-20">
@@ -55,6 +31,7 @@ const TrendingMovies = () => {
           ))}
         </ul>
       </section>
+      {/* Popular Movies */}
       <section className="mx-auto my-4 max-w-7xl">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 h-20">
