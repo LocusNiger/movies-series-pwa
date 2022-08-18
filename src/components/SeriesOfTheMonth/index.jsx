@@ -1,22 +1,9 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { useSeries } from "../../hooks/useSeries";
 import { Link } from "react-router-dom";
 import { Month } from "../MoviesOfTheMonth/Month";
 
 const SeriesOfTheMonth = () => {
-  const [seriesTrending, setSeriesTrending] = useState([]);
-  useEffect(() => {
-    const endpoint = `https://api.themoviedb.org/3/trending/tv/week?api_key=9cc2ccd6d9648c49e03bee3c9b88a569`;
-    axios
-      .get(endpoint)
-      .then((res) => {
-        setSeriesTrending(res.data.results);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [setSeriesTrending]);
-
+  const { seriesTrending } = useSeries();
   const mesNum = new Date().getMonth() + 1;
   const mes = Month(mesNum);
   seriesTrending.splice(5, 19);
@@ -42,7 +29,7 @@ const SeriesOfTheMonth = () => {
         </ul>
         <div className="flex justify-center mt-6">
           <p className="text-2xl text-white ">
-            <Link to={`/`}> See more </Link>
+            <Link to={`/trending-series`}> See more </Link>
           </p>
         </div>
       </section>

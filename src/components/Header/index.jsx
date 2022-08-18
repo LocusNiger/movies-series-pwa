@@ -39,7 +39,7 @@ const index = () => {
                 </Link>
               </li>
               <li>
-                <Link className="px-3 py-2 rounded-lg" to="/">
+                <Link className="px-3 py-2 rounded-lg" to="/trending-series">
                   Trending series
                 </Link>
               </li>

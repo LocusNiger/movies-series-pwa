@@ -6,6 +6,7 @@ import Header from "./components/Header/index";
 import Footer from "./components/Footer/index";
 import Results from "./pages/Results/index";
 import TrendingMovies from "./pages/TrendingMovies/index";
+import TrendingSeries from "./pages/TrendingSeries/index";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/results" element={<Results />} />
         <Route path="/trending-movies" element={<TrendingMovies />} />
+        <Route path="/trending-series" element={<TrendingSeries />} />
       </Routes>
       <Footer />
     </div>
