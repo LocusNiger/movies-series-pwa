@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
-const index = () => {
+const index = (props) => {
   let token = sessionStorage.getItem("token");
 
   return (
     <>
-      {!token ? (
+      {props.isLogged == false ? (
         <>
           <header className="bg-gray-900 mb-4">
             <nav className="max-w-3xl p-4 mx-auto">

@@ -1,7 +1,7 @@
 import axios from "axios";
 import sweetAlert from "sweetalert2";
 import { Navigate, useNavigate } from "react-router-dom";
-const Login = () => {
+const Login = (props) => {
   let token = sessionStorage.getItem("token");
   const navigate = useNavigate();
   const apiKey = "9cc2ccd6d9648c49e03bee3c9b88a569";
@@ -39,8 +39,8 @@ const Login = () => {
       .get(endpoint)
       .then((res) => {
         sessionStorage.setItem("token", res.data.guest_session_id);
-        console.log(res.data.guest_session_id);
         navigate("/");
+        props.setIsLogged(true);
       })
       .catch((err) => {
         console.log(err);
