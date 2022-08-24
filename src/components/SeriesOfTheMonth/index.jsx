@@ -17,7 +17,7 @@ const SeriesOfTheMonth = () => {
         <ul className="flex overflow-x-auto gap-6 snap-x snap-mandatory scroll-smooth before:shrink-0 before:w-1/12 after:shrink-0 after:w-1/12 lg:before:w-0 lg:after:w-0 lg:justify-around ">
           {seriesTrending.map((serie) => (
             <li key={serie.id} className="shrink-0 snap-center">
-              <Link to={`/detail?serieId=${serie.id}`}>
+              <Link to={`/series-detail?serieId=${serie.id}`}>
                 <img
                   className="w-72 lg:w-52 rounded-xl"
                   src={`https://image.tmdb.org/t/p/w500/${serie.poster_path}`}

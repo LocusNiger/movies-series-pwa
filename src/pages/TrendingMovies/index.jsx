@@ -20,7 +20,7 @@ const TrendingMovies = () => {
         <ul className="grid grid-cols-1 gap-10 box-border justify-items-center sm:grid-cols-2 sm:gap-x-0.5 sm:gap-y-8 lg:grid-cols-5">
           {moviesTrending.map((movie) => (
             <li key={movie.id} className="shrink-0 snap-center">
-              <Link to={`/detail?movieId=${movie.id}`}>
+              <Link to={`/movie-detail?movieId=${movie.id}`}>
                 <img
                   className="w-72 lg:w-52 rounded-xl"
                   src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
@@ -41,7 +41,7 @@ const TrendingMovies = () => {
         <ul className="grid grid-cols-1 gap-10 box-border justify-items-center sm:grid-cols-2 sm:gap-x-0.5 sm:gap-y-8 lg:grid-cols-5">
           {popularMovies.map((movie) => (
             <li key={movie.id} className="shrink-0 snap-center">
-              <Link to={`/detail?movieId=${movie.id}`}>
+              <Link to={`/movie-detail?movieId=${movie.id}`}>
                 <img
                   className="w-72 lg:w-52 rounded-xl"
                   src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}

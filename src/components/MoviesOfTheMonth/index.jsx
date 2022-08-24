@@ -18,7 +18,7 @@ const MoviesOfTheMonth = () => {
         <ul className="flex overflow-x-auto gap-6 snap-x snap-mandatory scroll-smooth before:shrink-0 before:w-1/12 after:shrink-0 after:w-1/12 lg:before:w-0 lg:after:w-0 lg:justify-around ">
           {moviesTrending.map((movie) => (
             <li key={movie.id} className="shrink-0 snap-center">
-              <Link to={`/detail?movieId=${movie.id}`}>
+              <Link to={`/movie-detail?movieId=${movie.id}`}>
                 <img
                   className="w-72 lg:w-52 rounded-xl"
                   src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}

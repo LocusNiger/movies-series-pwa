@@ -1,13 +1,17 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
+
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Header from "./components/Header/index";
-import Footer from "./components/Footer/index";
 import Results from "./pages/Results/index";
+import MovieDetail from "./pages/MovieDetail";
+import SeriesDetail from "./pages/SeriesDetail";
 import TrendingMovies from "./pages/TrendingMovies/index";
 import TrendingSeries from "./pages/TrendingSeries/index";
+
+import Header from "./components/Header/index";
+import Footer from "./components/Footer/index";
 
 function App() {
   let token = sessionStorage.getItem("token");
@@ -27,6 +31,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login setIsLogged={setIsLogged} />} />
         <Route path="/results" element={<Results />} />
+        <Route path="/movie-detail" element={<MovieDetail />} />
+        <Route path="/series-detail" element={<SeriesDetail />} />
         <Route path="/trending-movies" element={<TrendingMovies />} />
         <Route path="/trending-series" element={<TrendingSeries />} />
       </Routes>

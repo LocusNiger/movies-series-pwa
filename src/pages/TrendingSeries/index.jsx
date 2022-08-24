@@ -17,7 +17,7 @@ export default function TrendingSeries() {
         <ul className="grid grid-cols-1 gap-10 box-border justify-items-center sm:grid-cols-2 sm:gap-x-0.5 sm:gap-y-8 lg:grid-cols-5">
           {seriesTrending.map((serie) => (
             <li key={serie.id} className="shrink-0 snap-center">
-              <Link to={`/detail?serieId=${serie.id}`}>
+              <Link to={`/series-detail?serieId=${serie.id}`}>
                 <img
                   className="w-72 lg:w-52 rounded-xl"
                   src={`https://image.tmdb.org/t/p/w500/${serie.poster_path}`}

@@ -1,5 +1,4 @@
 import MoviesOfTheMonth from "../components/MoviesOfTheMonth/index";
-import PeopleFavorites from "../components/PeopleFavorites/index";
 import SeriesOfTheMonth from "../components/SeriesOfTheMonth/index";
 import Search from "../components/Search/index";
 import { Navigate } from "react-router-dom";
