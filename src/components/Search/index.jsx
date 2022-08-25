@@ -26,6 +26,7 @@ const Search = () => {
         pathname: "/results" /* redirijo a la ruta y le agrego los params */,
         search: `?${createSearchParams(params)}`,
       });
+      /* ej: keyword = cars =>  url: /results?cars */
       e.currentTarget.keyword.value = "";
     }
   };

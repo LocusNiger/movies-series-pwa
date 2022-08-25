@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 import sweetAlert from "sweetalert2";
+import Search from "../../components/Search";
 
 const Results = () => {
   const [params] = useSearchParams(); /* keyword viaja en la ruta */
@@ -26,13 +27,33 @@ const Results = () => {
       });
   }, [keyword]);
 
+  results.splice(8, 19);
+
   return (
     <>
-      <ul>
-        {results.map((result) => (
-          <li key={result.id}>{result.title}</li>
-        ))}
-      </ul>
+      <div className="flex flex-col items-center max-w-3xl mx-auto text-center">
+        <div className=" w-4/6 my-10">
+          <Search />
+        </div>
+        <h1 className="text-3xl font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 mb-4 h-auto sm:mb-10">
+          Search results for "{keyword}"
+        </h1>
+      </div>
+      <div>
+        {/* mapeo los resultados de la búsqueda y muestro las películas */}
+        <ul className="grid grid-cols-1 gap-10 box-border justify-items-center sm:grid-cols-2 sm:gap-x-0.5 sm:gap-y-8 lg:grid-cols-4">
+          {results.map((result) => (
+            <li key={result.id} className="shrink-0 snap-center">
+              <img
+                className="w-72 lg:w-52 rounded-xl"
+                src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`}
+                alt={`${result.title} poster`}
+                id={result.id}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };
