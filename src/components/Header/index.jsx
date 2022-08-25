@@ -7,8 +7,8 @@ const index = (props) => {
     <>
       {props.isLogged == false ? (
         <>
-          <header className="bg-gray-900 mb-4">
-            <nav className="max-w-3xl p-4 mx-auto">
+          <header className="bg-gray-900 mb-4 ">
+            <nav className="p-4 mx-auto my-4">
               <ul className="flex justify-end text-base text-white">
                 <li>
                   <Link className="px-3 py-2 rounded-lg" to="/">
@@ -26,7 +26,7 @@ const index = (props) => {
         </>
       ) : (
         <header className="bg-gray-900 mb-4">
-          <nav className="max-w-3xl p-4 mx-auto">
+          <nav className="p-4 mx-auto my-4">
             <ul className="flex justify-end text-base text-white">
               <li>
                 <Link className="px-3 py-2 rounded-lg" to="/">
