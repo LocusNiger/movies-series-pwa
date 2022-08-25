@@ -1,10 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
-const SeriesDetail = () => {
+import { useSearchParams, Navigate, useNavigate } from "react-router-dom";
+
+const SeriesDetail = (props) => {
   const [params] = useSearchParams(); //id viaja en la ruta
   const [id, setId] = useState("");
   const [detail, setDetail] = useState(null);
+  const navigate = useNavigate();
+
   useEffect(() => {
     setId(params.get("serieId"));
     const endpoint = `https://api.themoviedb.org/3/tv/${id}?api_key=9cc2ccd6d9648c49e03bee3c9b88a569&language=en-US`;
@@ -19,6 +22,7 @@ const SeriesDetail = () => {
   }, [id]);
   return (
     <>
+      {props.isLogged == false && <Navigate to="/" />}
       {detail && (
         <>
           <div className="flex flex-col justify-center text-white md:flex-row md:p-8">

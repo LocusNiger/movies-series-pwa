@@ -1,13 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useSearchParams, Link } from "react-router-dom";
+import { useSearchParams, Navigate, useNavigate } from "react-router-dom";
 import sweetAlert from "sweetalert2";
 import Search from "../../components/Search";
 
-const Results = () => {
+const Results = (props) => {
   const [params] = useSearchParams(); /* keyword viaja en la ruta */
   const keyword = params.get("keyword"); /* extraigo keyword del url */
   const [results, setResults] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const endpoint = `https://api.themoviedb.org/3/search/multi?api_key=9cc2ccd6d9648c49e03bee3c9b88a569&language=en-US&query=${keyword}&page=1&include_adult=true`;
@@ -31,6 +32,7 @@ const Results = () => {
 
   return (
     <>
+      {props.isLogged == false && <Navigate to="/" />}
       <div className="flex flex-col items-center max-w-3xl mx-auto text-center">
         <div className=" w-4/6 my-10">
           <Search />

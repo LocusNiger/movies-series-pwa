@@ -1,12 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useSeries } from "../../hooks/useSeries";
 
-export default function TrendingSeries() {
+export default function TrendingSeries(props) {
   const { seriesTrending } = useSeries();
   seriesTrending.splice(10, 19);
+  const navigate = useNavigate();
 
   return (
     <>
+      {props.isLogged == false && <Navigate to="/" />}
+
       {/* Trending TV shows */}
       <section className="mx-auto my-4 max-w-7xl">
         <div className="max-w-3xl mx-auto text-center">

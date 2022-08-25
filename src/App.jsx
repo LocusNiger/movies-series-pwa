@@ -28,13 +28,13 @@ function App() {
     <div className="App">
       <Header isLogged={isLogged} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home isLogged={isLogged} />} />
         <Route path="/login" element={<Login setIsLogged={setIsLogged} />} />
-        <Route path="/results" element={<Results />} />
-        <Route path="/movie-detail" element={<MovieDetail />} />
-        <Route path="/series-detail" element={<SeriesDetail />} />
-        <Route path="/trending-movies" element={<TrendingMovies />} />
-        <Route path="/trending-series" element={<TrendingSeries />} />
+        <Route path="/results" element={<Results isLogged={isLogged} />} />
+        <Route path="/movie-detail" element={<MovieDetail isLogged={isLogged} />} />
+        <Route path="/series-detail" element={<SeriesDetail isLogged={isLogged} />} />
+        <Route path="/trending-movies" element={<TrendingMovies isLogged={isLogged} />} />
+        <Route path="/trending-series" element={<TrendingSeries isLogged={isLogged} />} />
       </Routes>
       <Footer />
     </div>

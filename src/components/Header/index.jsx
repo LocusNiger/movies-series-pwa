@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 
 const index = (props) => {
-  let token = sessionStorage.getItem("token");
-
   return (
     <>
       {props.isLogged == false ? (

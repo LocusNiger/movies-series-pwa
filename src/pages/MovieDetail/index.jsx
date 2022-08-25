@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Navigate, useNavigate } from "react-router-dom";
 
 /* Detalle  */
-const MovieDetail = () => {
+const MovieDetail = (props) => {
   let query = new URLSearchParams(window.location.search);
   let movieId = query.get("movieId");
+  const navigate = useNavigate();
 
   const [detail, setDetail] = useState(null);
   useEffect(() => {
@@ -20,6 +22,7 @@ const MovieDetail = () => {
 
   return (
     <>
+      {props.isLogged == false && <Navigate to="/" />}
       {detail && (
         <>
           {/* Detalle película */}

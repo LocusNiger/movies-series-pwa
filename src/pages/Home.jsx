@@ -1,10 +1,8 @@
 import HomeWithoutLogin from "../pages/HomeWithoutLogin";
 import HomeWithLogin from "../pages/HomeWithLogin";
 
-const Home = () => {
-  let token = sessionStorage.getItem("token");
-
-  return <>{!token ? <HomeWithoutLogin /> : <HomeWithLogin />}</>;
+const Home = (props) => {
+  return <>{props.isLogged == false ? <HomeWithoutLogin /> : <HomeWithLogin />}</>;
 };
 
 export default Home;

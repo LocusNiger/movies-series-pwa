@@ -1,15 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useMovies } from "../../hooks/useMovies";
 import { usePopularMovies } from "../../hooks/usePopularMovies";
 
-const TrendingMovies = () => {
+const TrendingMovies = (props) => {
   const { moviesTrending } = useMovies();
   const { popularMovies } = usePopularMovies();
+  const navigate = useNavigate();
 
   moviesTrending.splice(10, 19);
   popularMovies.splice(10, 19);
   return (
     <>
+      {props.isLogged == false && <Navigate to="/" />}
       {/* Trending Movies */}
       <section className="mx-auto my-4 max-w-7xl">
         <div className="max-w-3xl mx-auto text-center">
