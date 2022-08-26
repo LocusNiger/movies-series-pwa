@@ -65,8 +65,8 @@ const Login = (props) => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, transition: { duration: 0.6 } }}
             >
-              <div className="max-w-lg mx-auto text-center h-auto">
-                <h1 className="text-3xl font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 h-auto">
+              <div className="max-w-lg mx-auto text-center h-auto mb-6">
+                <h1 className="text-3xl font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 h-14 mb-2">
                   Login
                 </h1>
                 <p className="text-xs bg-clip-text bg-gradient-to-r text-transparent from-green-300 to-blue-500 ">

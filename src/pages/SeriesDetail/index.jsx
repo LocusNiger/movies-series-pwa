@@ -1,13 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useSearchParams, Navigate, useNavigate } from "react-router-dom";
+import { useSearchParams, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const SeriesDetail = (props) => {
   const [params] = useSearchParams(); //id viaja en la ruta
   const [id, setId] = useState("");
   const [detail, setDetail] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     setId(params.get("serieId"));
@@ -21,6 +20,7 @@ const SeriesDetail = (props) => {
         console.log(err);
       });
   }, [id]);
+
   return (
     <>
       {props.isLogged == false && <Navigate to="/" />}
