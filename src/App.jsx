@@ -1,6 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -14,6 +15,7 @@ import Header from "./components/Header/index";
 import Footer from "./components/Footer/index";
 
 function App() {
+  const location = useLocation();
   let token = sessionStorage.getItem("token");
   const [isLogged, setIsLogged] = useState(null);
   useEffect(() => {
@@ -27,15 +29,17 @@ function App() {
   return (
     <div className="App">
       <Header isLogged={isLogged} />
-      <Routes>
-        <Route path="/" element={<Home isLogged={isLogged} />} />
-        <Route path="/login" element={<Login setIsLogged={setIsLogged} />} />
-        <Route path="/results" element={<Results isLogged={isLogged} />} />
-        <Route path="/movie-detail" element={<MovieDetail isLogged={isLogged} />} />
-        <Route path="/series-detail" element={<SeriesDetail isLogged={isLogged} />} />
-        <Route path="/trending-movies" element={<TrendingMovies isLogged={isLogged} />} />
-        <Route path="/trending-series" element={<TrendingSeries isLogged={isLogged} />} />
-      </Routes>
+      <AnimatePresence>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home setIsLogged={setIsLogged} isLogged={isLogged} />} />
+          <Route path="/login" element={<Login setIsLogged={setIsLogged} isLogged={isLogged} />} />
+          <Route path="/results" element={<Results isLogged={isLogged} />} />
+          <Route path="/movie-detail" element={<MovieDetail isLogged={isLogged} />} />
+          <Route path="/series-detail" element={<SeriesDetail isLogged={isLogged} />} />
+          <Route path="/trending-movies" element={<TrendingMovies isLogged={isLogged} />} />
+          <Route path="/trending-series" element={<TrendingSeries isLogged={isLogged} />} />
+        </Routes>
+      </AnimatePresence>
       <Footer />
     </div>
   );

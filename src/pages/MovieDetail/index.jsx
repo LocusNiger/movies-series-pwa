@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 /* Detalle  */
 const MovieDetail = (props) => {
@@ -26,7 +27,11 @@ const MovieDetail = (props) => {
       {detail && (
         <>
           {/* Detalle película */}
-          <section>
+          <motion.section
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, transition: { duration: 0.3 } }}
+          >
             <div className="flex flex-col justify-center text-white md:flex-row md:p-8">
               <div className="relative md:inline-block md:w-1/2 lg:w-2/6">
                 <img
@@ -62,7 +67,7 @@ const MovieDetail = (props) => {
                 </div>
               </div>
             </div>
-          </section>
+          </motion.section>
         </>
       )}
     </>

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams, Navigate, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const SeriesDetail = (props) => {
   const [params] = useSearchParams(); //id viaja en la ruta
@@ -25,7 +26,12 @@ const SeriesDetail = (props) => {
       {props.isLogged == false && <Navigate to="/" />}
       {detail && (
         <>
-          <div className="flex flex-col justify-center text-white md:flex-row md:p-8">
+          <motion.div
+            className="flex flex-col justify-center text-white md:flex-row md:p-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, transition: { duration: 0.3 } }}
+          >
             <div className="relative md:inline-block md:w-1/2 lg:w-2/6">
               <img
                 className="w-full rounded-xl p-2 box-border"
@@ -59,7 +65,7 @@ const SeriesDetail = (props) => {
                 </ul>
               </div>
             </div>
-          </div>
+          </motion.div>
         </>
       )}
     </>

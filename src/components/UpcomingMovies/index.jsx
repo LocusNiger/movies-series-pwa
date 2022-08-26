@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const UpcomingMovies = () => {
   const [upcoming, setUpcoming] = useState([]);
@@ -20,7 +21,12 @@ const UpcomingMovies = () => {
   upcoming.splice(5, 19);
   return (
     <>
-      <section className="mx-auto my-10 max-w-7xl">
+      <motion.section
+        className="mx-auto my-10 max-w-7xl"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0, transition: { duration: 0.3 } }}
+      >
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-3xl font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-gray-300 via-fuchsia-600 to-orange-600 h-20">
             Upcoming movies
@@ -39,7 +45,7 @@ const UpcomingMovies = () => {
             </li>
           ))}
         </ul>
-      </section>
+      </motion.section>
     </>
   );
 };

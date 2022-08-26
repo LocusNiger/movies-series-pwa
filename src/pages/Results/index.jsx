@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams, Navigate, useNavigate } from "react-router-dom";
 import sweetAlert from "sweetalert2";
 import Search from "../../components/Search";
+import { motion } from "framer-motion";
 
 const Results = (props) => {
   const [params] = useSearchParams(); /* keyword viaja en la ruta */
@@ -33,15 +34,20 @@ const Results = (props) => {
   return (
     <>
       {props.isLogged == false && <Navigate to="/" />}
-      <div className="flex flex-col items-center max-w-3xl mx-auto text-center">
+      <motion.div
+        className="flex flex-col items-center max-w-3xl mx-auto text-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0, transition: { duration: 0.3 } }}
+      >
         <div className=" w-4/6 my-10">
           <Search />
         </div>
         <h1 className="text-3xl font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 mb-4 h-auto sm:mb-10">
           Search results for "{keyword}"
         </h1>
-      </div>
-      <div>
+      </motion.div>
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
         {/* mapeo los resultados de la búsqueda y muestro las películas */}
         <ul className="grid grid-cols-1 gap-10 box-border justify-items-center sm:grid-cols-2 sm:gap-x-0.5 sm:gap-y-8 lg:grid-cols-4">
           {results.map((result) => (
@@ -55,7 +61,7 @@ const Results = (props) => {
             </li>
           ))}
         </ul>
-      </div>
+      </motion.div>
     </>
   );
 };

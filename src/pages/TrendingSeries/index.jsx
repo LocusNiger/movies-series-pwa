@@ -1,5 +1,6 @@
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useSeries } from "../../hooks/useSeries";
+import { motion } from "framer-motion";
 
 export default function TrendingSeries(props) {
   const { seriesTrending } = useSeries();
@@ -11,7 +12,12 @@ export default function TrendingSeries(props) {
       {props.isLogged == false && <Navigate to="/" />}
 
       {/* Trending TV shows */}
-      <section className="mx-auto my-4 max-w-7xl">
+      <motion.section
+        className="mx-auto my-4 max-w-7xl"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0, transition: { duration: 0.3 } }}
+      >
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-3xl font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 h-20">
             Trending TV shows of the month
@@ -30,7 +36,7 @@ export default function TrendingSeries(props) {
             </li>
           ))}
         </ul>
-      </section>
+      </motion.section>
       {/* Popular TV shows */}
     </>
   );

@@ -1,6 +1,7 @@
 import { Link, Navigate } from "react-router-dom";
 import UpcomingMovies from "../../components/UpcomingMovies";
 import { useMovies } from "../../hooks/useMovies";
+import { motion } from "framer-motion";
 
 const TrendingMovies = (props) => {
   const { moviesTrending } = useMovies();
@@ -10,7 +11,13 @@ const TrendingMovies = (props) => {
     <>
       {props.isLogged == false && <Navigate to="/" />}
       {/* Trending Movies */}
-      <section className="mx-auto my-4 max-w-7xl">
+      <motion.section
+        className="mx-auto my-4 max-w-7xl"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+        exit={{ opacity: 0 }}
+      >
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-3xl font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 h-20">
             Trending movies of the month
@@ -29,7 +36,7 @@ const TrendingMovies = (props) => {
             </li>
           ))}
         </ul>
-      </section>
+      </motion.section>
       {/* Upcoming movies */}
       <UpcomingMovies />
     </>

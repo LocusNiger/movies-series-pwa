@@ -2,7 +2,7 @@ import HomeWithoutLogin from "../pages/HomeWithoutLogin";
 import HomeWithLogin from "../pages/HomeWithLogin";
 
 const Home = (props) => {
-  return <>{props.isLogged == false ? <HomeWithoutLogin /> : <HomeWithLogin />}</>;
+  return <>{props.isLogged == true ? <HomeWithLogin /> : <HomeWithoutLogin />}</>;
 };
 
 export default Home;
