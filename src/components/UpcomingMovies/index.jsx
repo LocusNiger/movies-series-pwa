@@ -11,7 +11,6 @@ const UpcomingMovies = () => {
       .get(`https://api.themoviedb.org/3/movie/upcoming?api_key=9cc2ccd6d9648c49e03bee3c9b88a569&language=en-US&page=1`)
       .then((res) => {
         setUpcoming(res.data.results);
-        console.log(res.data.results);
       })
       .catch((error) => {
         console.log(error);
