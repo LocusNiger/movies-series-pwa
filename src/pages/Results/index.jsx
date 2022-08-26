@@ -35,7 +35,7 @@ const Results = (props) => {
     <>
       {props.isLogged == false && <Navigate to="/" />}
       <motion.div
-        className="flex flex-col items-center max-w-3xl mx-auto text-center"
+        className="flex flex-col items-center max-w-3xl mx-auto text-center h-auto"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0, transition: { duration: 0.3 } }}

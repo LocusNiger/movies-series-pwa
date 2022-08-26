@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
+import swal from "sweetalert2";
 
 const index = (props) => {
   const handleLogout = () => {
+    swal("Are you sure?", {
+      dangerMode: true,
+      buttons: true,
+    });
     sessionStorage.removeItem("token");
     props.setIsLogged(false);
   };

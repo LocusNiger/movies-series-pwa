@@ -17,7 +17,7 @@ const HomeWithLogin = () => {
             exit={{ opacity: 0, transition: { duration: 1.2 } }}
           >
             <motion.div
-              className="max-w-3xl mx-auto text-center"
+              className="max-w-3xl mx-auto text-center h-auto"
               style={{ scale, x }}
               drag="x"
               dragConstraints={{ left: -85, right: 85 }}
