@@ -28,7 +28,7 @@ const index = () => {
           </a>
 
           <a
-            href="#!"
+            href="https://github.com/LocusNiger/"
             type="button"
             className="rounded-full border border-white text-white w-9 h-9 m-1"
             target="_blank"
