@@ -55,12 +55,12 @@ const index = (props) => {
             <nav className="p-4 mx-auto my-4">
               <ul className="flex w-full justify-end text-white">
                 <li className="w-auto">
-                  <Link className="md:px-3 md:py-2" to="/">
+                  <Link className="px-3 py-2" to="/">
                     Home
                   </Link>
                 </li>
                 <li className="w-auto">
-                  <Link className="md:px-3 md:py-2" to="/login">
+                  <Link className="px-3 py-2" to="/login">
                     Login
                   </Link>
                 </li>
