@@ -19,6 +19,7 @@ const SeriesDetail = (props) => {
       .catch((err) => {
         console.log(err);
       });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [id]);
 
   useEffect(() => {
