@@ -28,7 +28,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header isLogged={isLogged} />
+      <Header setIsLogged={setIsLogged} isLogged={isLogged} />
       <AnimatePresence>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home setIsLogged={setIsLogged} isLogged={isLogged} />} />

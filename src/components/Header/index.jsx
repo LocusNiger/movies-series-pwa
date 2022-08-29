@@ -1,14 +1,24 @@
-import { Link } from "react-router-dom";
-import swal from "sweetalert2";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const index = (props) => {
+  const navigate = useNavigate();
+  /* logout. Si acepta, se redirije al inicio (sin token) */
   const handleLogout = () => {
-    swal("Are you sure?", {
-      dangerMode: true,
-      buttons: true,
+    Swal.fire({
+      title: "Are you sure you want to log out?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, logout!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        props.setIsLogged(false);
+        sessionStorage.removeItem("token");
+        navigate("/");
+      }
     });
-    sessionStorage.removeItem("token");
-    props.setIsLogged(false);
   };
   return (
     <>
